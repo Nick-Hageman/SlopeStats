@@ -1,0 +1,56 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+/.build/
+/Packages/
+/.swiftpm/xcode/*
+*.xcodeproj/project.xcworkspace/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+*.lock
+
+# Code Signing
+*.pem
+*.cer
+*.mobileprovision
+*.p12
+
+# Archives
+*.xcarchive
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Playground
+timeline.xctimeline
+playground.xcplaygroundsession
+
+# Other
+*.orig
+*.bak
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.moved-aside
