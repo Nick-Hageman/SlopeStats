@@ -6,44 +6,46 @@ struct StatsView: View {
     @State private var timer: Timer?
 
     var body: some View {
-        VStack {
-            Text(formatTime(skiingTime))
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .onAppear {
-                    startTimer()
-                }
-            
-            VStack(alignment: .leading, spacing: 0) {
-                StatRowView(iconName: "mountain.2", label: "Altitude", value: "1500", unit: "m", iconColor: .blue, fontColor: .blue)
-                StatRowView(iconName: "heart", label: "Heart Rate", value: "120", unit: "bpm", iconColor: .red, fontColor: .red)
-                StatRowView(iconName: "speedometer", label: "Speed", value: "25", unit: "km/h", iconColor: .yellow, fontColor: .yellow)
-                StatRowView(iconName: "hare", label: "Top Speed", value: "45", unit: "km/h", iconColor: .white, fontColor: .white)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.black.opacity(0.8))
-            .cornerRadius(15)
-            .padding(.horizontal)
-            
-            Spacer()
-            
-            Button(action: {
-                stopTimer()
-                presentationMode.wrappedValue.dismiss() // Return to ContentView
-            }) {
-                Text("End Run")
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
+        ScrollView {
+            VStack {
+                Text(formatTime(skiingTime))
+                    .font(.title)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding(.horizontal)
+                    .onAppear {
+                        startTimer()
+                    }
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    StatRowView(iconName: "mountain.2", label: "Altitude", value: "1500", unit: "m", iconColor: .blue, fontColor: .blue)
+                    StatRowView(iconName: "heart", label: "Heart Rate", value: "120", unit: "bpm", iconColor: .red, fontColor: .red)
+                    StatRowView(iconName: "speedometer", label: "Speed", value: "25", unit: "km/h", iconColor: .yellow, fontColor: .yellow)
+                    StatRowView(iconName: "hare", label: "Top Speed", value: "45", unit: "km/h", iconColor: .white, fontColor: .white)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.black.opacity(0.8))
+                .cornerRadius(15)
+                .padding(.horizontal)
+                
+                Spacer()
+                
+                Button(action: {
+                    stopTimer()
+                    presentationMode.wrappedValue.dismiss() // Return to ContentView
+                }) {
+                    Text("End Run")
+                        .font(.headline)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                }
+                .padding(.bottom)
             }
-            .padding(.bottom)
+            .background(Color.black.edgesIgnoringSafeArea(.all))
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
     }
     
     // Format time as mm:ss

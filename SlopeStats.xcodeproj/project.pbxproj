@@ -10,6 +10,7 @@
 		139F36662D1A22FD00799618 /* SpeedModeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36652D1A22F700799618 /* SpeedModeSetupView.swift */; };
 		139F36682D1A231600799618 /* SpeedModeCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36672D1A231400799618 /* SpeedModeCountdownView.swift */; };
 		139F366A2D1A36A000799618 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36692D1A369D00799618 /* WeatherView.swift */; };
+		139F366C2D1A388700799618 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 139F366B2D1A388300799618 /* weather.json */; };
 		13D96C7F2D189FA0003238F6 /* SlopeStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */; };
 		13D96C812D189FA0003238F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C802D189FA0003238F6 /* ContentView.swift */; };
 		13D96C832D189FA2003238F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D96C822D189FA2003238F6 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		139F36652D1A22F700799618 /* SpeedModeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModeSetupView.swift; sourceTree = "<group>"; };
 		139F36672D1A231400799618 /* SpeedModeCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModeCountdownView.swift; sourceTree = "<group>"; };
 		139F36692D1A369D00799618 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		139F366B2D1A388300799618 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		13D96C7B2D189FA0003238F6 /* SlopeStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlopeStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlopeStatsApp.swift; sourceTree = "<group>"; };
 		13D96C802D189FA0003238F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				139F36692D1A369D00799618 /* WeatherView.swift */,
+				139F366B2D1A388300799618 /* weather.json */,
 				13D96CEC2D19D84F003238F6 /* StatsView.swift */,
 				13D96CEA2D19D63D003238F6 /* CountdownView.swift */,
 				13D96CA62D189FA3003238F6 /* SlopeStatsApp.swift */,
@@ -484,6 +487,7 @@
 				13D96CAE2D189FA3003238F6 /* Preview Assets.xcassets in Resources */,
 				13D96CAB2D189FA3003238F6 /* Assets.xcassets in Resources */,
 				13D96CE72D193152003238F6 /* snowyMountain.jpeg in Resources */,
+				139F366C2D1A388700799618 /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

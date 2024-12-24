@@ -46,7 +46,17 @@ struct ContentView: View {
                                             .foregroundColor(.white)
                                             .cornerRadius(8)
                                     }
-                                } else {
+                                } else if activity.title == "Weather" {
+                                    NavigationLink(destination: WeatherView()) {
+                                        Text(activity.buttonText)
+                                            .font(.subheadline)
+                                            .padding(.vertical, 4)
+                                            .padding(.horizontal, 10)
+                                            .background(Color.blue)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8)
+                                        }
+                                    } else {
                                     Button(action: {
                                         // Handle other actions
                                     }) {
@@ -96,8 +106,6 @@ struct ContentView: View {
         return scene
     }
 }
-
-
 
 struct ActivityItem: Identifiable {
     let id = UUID()
