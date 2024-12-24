@@ -5,7 +5,7 @@ struct ContentView: View {
     @State private var currentIndex: Int = 0
 
     var body: some View {
-        NavigationView { // Add NavigationView
+        NavigationView {
             ZStack {
                 Image("snowyMountain")
                     .resizable()
@@ -28,6 +28,16 @@ struct ContentView: View {
 
                                 if activity.title == "Activity Tracker" {
                                     NavigationLink(destination: CountdownView()) {
+                                        Text(activity.buttonText)
+                                            .font(.subheadline)
+                                            .padding(.vertical, 4)
+                                            .padding(.horizontal, 10)
+                                            .background(Color.blue)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8)
+                                    }
+                                } else if activity.title == "Speed Mode" {
+                                    NavigationLink(destination: SpeedModeSetupView()) {
                                         Text(activity.buttonText)
                                             .font(.subheadline)
                                             .padding(.vertical, 4)
@@ -62,7 +72,7 @@ struct ContentView: View {
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
                     HStack(spacing: 8) {
-                        ForEach(activityItems.indices, id: \.self) { index in
+                        ForEach(activityItems.indices, id: \ .self) { index in
                             Circle()
                                 .frame(width: 8, height: 8)
                                 .foregroundColor(currentIndex == index ? .blue : .gray)
@@ -76,7 +86,7 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func createRotatingScene(for fileName: String) -> SCNScene {
         let scene = SCNScene(named: fileName) ?? SCNScene()
         let rootNode = scene.rootNode
@@ -86,6 +96,8 @@ struct ContentView: View {
         return scene
     }
 }
+
+
 
 struct ActivityItem: Identifiable {
     let id = UUID()

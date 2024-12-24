@@ -7,28 +7,21 @@ struct StatsView: View {
 
     var body: some View {
         VStack {
-            VStack(alignment: .center) {
-                Text("Time")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                Text(formatTime(skiingTime))
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .onAppear {
-                        startTimer()
-                    }
-            }
-            .padding()
+            Text(formatTime(skiingTime))
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .onAppear {
+                    startTimer()
+                }
             
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 0) {
                 StatRowView(iconName: "mountain.2", label: "Altitude", value: "1500", unit: "m", iconColor: .blue, fontColor: .blue)
                 StatRowView(iconName: "heart", label: "Heart Rate", value: "120", unit: "bpm", iconColor: .red, fontColor: .red)
                 StatRowView(iconName: "speedometer", label: "Speed", value: "25", unit: "km/h", iconColor: .yellow, fontColor: .yellow)
                 StatRowView(iconName: "hare", label: "Top Speed", value: "45", unit: "km/h", iconColor: .white, fontColor: .white)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
             .background(Color.black.opacity(0.8))
             .cornerRadius(15)
             .padding(.horizontal)

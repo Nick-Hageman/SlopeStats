@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139F36662D1A22FD00799618 /* SpeedModeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36652D1A22F700799618 /* SpeedModeSetupView.swift */; };
+		139F36682D1A231600799618 /* SpeedModeCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36672D1A231400799618 /* SpeedModeCountdownView.swift */; };
+		139F366A2D1A36A000799618 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36692D1A369D00799618 /* WeatherView.swift */; };
 		13D96C7F2D189FA0003238F6 /* SlopeStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */; };
 		13D96C812D189FA0003238F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C802D189FA0003238F6 /* ContentView.swift */; };
 		13D96C832D189FA2003238F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D96C822D189FA2003238F6 /* Assets.xcassets */; };
@@ -86,6 +89,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		139F36652D1A22F700799618 /* SpeedModeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModeSetupView.swift; sourceTree = "<group>"; };
+		139F36672D1A231400799618 /* SpeedModeCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModeCountdownView.swift; sourceTree = "<group>"; };
+		139F36692D1A369D00799618 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		13D96C7B2D189FA0003238F6 /* SlopeStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlopeStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlopeStatsApp.swift; sourceTree = "<group>"; };
 		13D96C802D189FA0003238F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -229,10 +235,13 @@
 		13D96CA52D189FA3003238F6 /* SlopeStats Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				139F36692D1A369D00799618 /* WeatherView.swift */,
 				13D96CEC2D19D84F003238F6 /* StatsView.swift */,
 				13D96CEA2D19D63D003238F6 /* CountdownView.swift */,
 				13D96CA62D189FA3003238F6 /* SlopeStatsApp.swift */,
 				13D96CA82D189FA3003238F6 /* ContentView.swift */,
+				139F36652D1A22F700799618 /* SpeedModeSetupView.swift */,
+				139F36672D1A231400799618 /* SpeedModeCountdownView.swift */,
 				13D96CAA2D189FA3003238F6 /* Assets.xcassets */,
 				13D96CE82D193731003238F6 /* earth.usdz */,
 				13D96CE62D193152003238F6 /* snowyMountain.jpeg */,
@@ -389,7 +398,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					13D96C7A2D189FA0003238F6 = {
 						CreatedOnToolsVersion = 15.2;
@@ -528,7 +537,10 @@
 				13D96CED2D19D84F003238F6 /* StatsView.swift in Sources */,
 				13D96CEB2D19D63D003238F6 /* CountdownView.swift in Sources */,
 				13D96CA92D189FA3003238F6 /* ContentView.swift in Sources */,
+				139F36682D1A231600799618 /* SpeedModeCountdownView.swift in Sources */,
 				13D96CA72D189FA3003238F6 /* SlopeStatsApp.swift in Sources */,
+				139F366A2D1A36A000799618 /* WeatherView.swift in Sources */,
+				139F36662D1A22FD00799618 /* SpeedModeSetupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +626,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -675,6 +688,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -708,6 +722,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SlopeStats;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nick.SlopeStats;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,7 +735,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Debug;
 		};
@@ -738,6 +753,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SlopeStats;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nick.SlopeStats;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,14 +767,13 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Release;
 		};
 		13D96CCC2D189FA4003238F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -791,7 +806,6 @@
 		13D96CCD2D189FA4003238F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -825,7 +839,6 @@
 		13D96CCF2D189FA4003238F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -846,7 +859,6 @@
 		13D96CD02D189FA4003238F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -868,7 +880,6 @@
 		13D96CD22D189FA4003238F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK32F3S38V;
@@ -888,7 +899,6 @@
 		13D96CD32D189FA4003238F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK32F3S38V;
@@ -909,7 +919,6 @@
 		13D96CD52D189FA4003238F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -923,14 +932,13 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlopeStats Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlopeStats Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Debug;
 		};
 		13D96CD62D189FA4003238F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -945,14 +953,13 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlopeStats Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SlopeStats Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Release;
 		};
 		13D96CD82D189FA4003238F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK32F3S38V;
@@ -965,14 +972,13 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "SlopeStats Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Debug;
 		};
 		13D96CD92D189FA4003238F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK32F3S38V;
@@ -986,7 +992,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "SlopeStats Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
 			};
 			name = Release;
 		};
