@@ -125,3 +125,7 @@ struct WeatherRowView: View {
         .padding(.vertical, 4)
     }
 }
+
+#Preview {
+    WeatherView()
+}
