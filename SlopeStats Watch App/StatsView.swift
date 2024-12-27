@@ -5,16 +5,19 @@ import WatchConnectivity
 
 // ViewModel to handle WCSession and SkiingData logic
 class StatsViewModel: NSObject, WCSessionDelegate, ObservableObject {
-    @Published var skiingData: SkiingData = SkiingData()
+    static let shared = StatsViewModel()
 
-    override init() {
+    var skiingData: SkiingData = SkiingData()
+
+    private override init() {
         super.init()
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
         }
     }
-    
+
     // Required WCSessionDelegate methods:
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         switch activationState {
@@ -43,22 +46,14 @@ class StatsViewModel: NSObject, WCSessionDelegate, ObservableObject {
     // Method to send data to iPhone
     func transmitDataToPhone(skiingData: SkiingData, completion: @escaping () -> Void) {
         if WCSession.default.isReachable {
-            let data: [String: Any] = [
-                "duration": skiingData.duration,
-                "altitude": skiingData.altitude,
-                "heartRate": skiingData.heartRate,
-                "speed": skiingData.speed,
-                "topSpeed": skiingData.topSpeed,
-                "timestamp": Date()
-            ]
-            print("Session reachable, sending data:")
-            print(data)
-
-            WCSession.default.sendMessage(data, replyHandler: { _ in
-                completion()
-            }, errorHandler: { _ in
-                completion()
-            })
+            print("Session reachable, sending data")
+            WCSession.default.sendMessage(["duration": skiingData.duration,
+                                           "timestamp": Date(),
+                                           "altitude": skiingData.altitude,
+                                           "heartRate": skiingData.heartRate,
+                                           "speed": skiingData.speed,
+                                           "topSpeed": skiingData.topSpeed,
+                                          ], replyHandler: nil, errorHandler: nil)
         } else {
             print("Session not reachable")
             completion()
@@ -70,7 +65,7 @@ class StatsViewModel: NSObject, WCSessionDelegate, ObservableObject {
 // StatsView to display skiing stats and manage the session
 struct StatsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var viewModel = StatsViewModel()
+//    @StateObject private var viewModel = StatsViewModel()
 
     @State private var skiingTime: TimeInterval = 0
     @State private var timer: Timer?
@@ -149,7 +144,7 @@ struct StatsView: View {
         stopSensorUpdates()
 
         isTransmitting = true
-        viewModel.transmitDataToPhone(skiingData: viewModel.skiingData) {
+        StatsViewModel.shared.transmitDataToPhone(skiingData: StatsViewModel.shared.skiingData) {
             isTransmitting = false
             presentationMode.wrappedValue.dismiss()
         }
@@ -158,7 +153,7 @@ struct StatsView: View {
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             skiingTime += 1
-            viewModel.skiingData.duration = skiingTime
+            StatsViewModel.shared.skiingData.duration = skiingTime
         }
     }
 
@@ -173,7 +168,7 @@ struct StatsView: View {
                 if let altitudeData = data {
                     let currentAltitude = altitudeData.relativeAltitude.doubleValue
                     self.altitude = currentAltitude
-                    viewModel.skiingData.altitude.append(currentAltitude)
+                    StatsViewModel.shared.skiingData.altitude.append(currentAltitude)
                 }
             }
         }
@@ -185,9 +180,9 @@ struct StatsView: View {
                                               pow(speedData.acceleration.y, 2) +
                                               pow(speedData.acceleration.z, 2)) * 10
                     self.speed = simulatedSpeed
-                    viewModel.skiingData.speed.append(simulatedSpeed)
+                    StatsViewModel.shared.skiingData.speed.append(simulatedSpeed)
                     self.topSpeed = max(self.topSpeed, simulatedSpeed)
-                    viewModel.skiingData.topSpeed = self.topSpeed
+                    StatsViewModel.shared.skiingData.topSpeed = self.topSpeed
                 }
             }
         }
@@ -198,7 +193,7 @@ struct StatsView: View {
                 if let latestHeartRate = samples.last?.quantity.doubleValue(for: .count().unitDivided(by: .minute())) {
                     let currentHeartRate = Int(latestHeartRate)
                     self.heartRate = currentHeartRate
-                    viewModel.skiingData.heartRate.append(currentHeartRate)
+                    StatsViewModel.shared.skiingData.heartRate.append(currentHeartRate)
                 }
             }
         }

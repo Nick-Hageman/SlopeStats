@@ -14,9 +14,9 @@
 		139F36742D1B1BD500799618 /* SlopeStats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139F36722D1B1BD500799618 /* SlopeStats.xcdatamodeld */; };
 		139F367A2D1B23CF00799618 /* ArrayToDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36792D1B23C800799618 /* ArrayToDataTransformer.swift */; };
 		139F367C2D1B27C700799618 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F367B2D1B27BC00799618 /* PersistenceController.swift */; };
-		139F367E2D1B27E200799618 /* WCSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F367D2D1B27D800799618 /* WCSessionDelegate.swift */; };
-		139F36802D1B280200799618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F367F2D1B27FE00799618 /* AppDelegate.swift */; };
 		139F36822D1B348E00799618 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F36812D1B348E00799618 /* InterfaceController.swift */; };
+		139F36B52D1E1CD600799618 /* SlopeStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F36B42D1E1CD600799618 /* SlopeStats.png */; };
+		139F36B72D1E35F500799618 /* slopeStatsBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F36B62D1E35F500799618 /* slopeStatsBanner.png */; };
 		13D96C7F2D189FA0003238F6 /* SlopeStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */; };
 		13D96C812D189FA0003238F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D96C802D189FA0003238F6 /* ContentView.swift */; };
 		13D96C832D189FA2003238F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D96C822D189FA2003238F6 /* Assets.xcassets */; };
@@ -103,9 +103,10 @@
 		139F36732D1B1BD500799618 /* SlopeStats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlopeStats.xcdatamodel; sourceTree = "<group>"; };
 		139F36792D1B23C800799618 /* ArrayToDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayToDataTransformer.swift; sourceTree = "<group>"; };
 		139F367B2D1B27BC00799618 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		139F367D2D1B27D800799618 /* WCSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionDelegate.swift; sourceTree = "<group>"; };
-		139F367F2D1B27FE00799618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139F36812D1B348E00799618 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		139F36B32D1DF9E400799618 /* SlopeStats Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SlopeStats Watch App.entitlements"; sourceTree = "<group>"; };
+		139F36B42D1E1CD600799618 /* SlopeStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SlopeStats.png; sourceTree = "<group>"; };
+		139F36B62D1E35F500799618 /* slopeStatsBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slopeStatsBanner.png; sourceTree = "<group>"; };
 		13D96C7B2D189FA0003238F6 /* SlopeStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlopeStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlopeStatsApp.swift; sourceTree = "<group>"; };
 		13D96C802D189FA0003238F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,10 +217,10 @@
 				139F36792D1B23C800799618 /* ArrayToDataTransformer.swift */,
 				13D96C7E2D189FA0003238F6 /* SlopeStatsApp.swift */,
 				139F367B2D1B27BC00799618 /* PersistenceController.swift */,
-				139F367D2D1B27D800799618 /* WCSessionDelegate.swift */,
-				139F367F2D1B27FE00799618 /* AppDelegate.swift */,
 				13D96C802D189FA0003238F6 /* ContentView.swift */,
 				13D96C822D189FA2003238F6 /* Assets.xcassets */,
+				139F36B62D1E35F500799618 /* slopeStatsBanner.png */,
+				139F36B42D1E1CD600799618 /* SlopeStats.png */,
 				13D96C842D189FA2003238F6 /* Preview Content */,
 				139F36722D1B1BD500799618 /* SlopeStats.xcdatamodeld */,
 			);
@@ -254,6 +255,7 @@
 		13D96CA52D189FA3003238F6 /* SlopeStats Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				139F36B32D1DF9E400799618 /* SlopeStats Watch App.entitlements */,
 				139F36692D1A369D00799618 /* WeatherView.swift */,
 				139F36812D1B348E00799618 /* InterfaceController.swift */,
 				139F366B2D1A388300799618 /* weather.json */,
@@ -473,9 +475,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139F36B72D1E35F500799618 /* slopeStatsBanner.png in Resources */,
 				13D96C862D189FA2003238F6 /* Preview Assets.xcassets in Resources */,
 				13D96CDB2D18AE3C003238F6 /* .gitignore in Resources */,
 				13D96C832D189FA2003238F6 /* Assets.xcassets in Resources */,
+				139F36B52D1E1CD600799618 /* SlopeStats.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,8 +537,6 @@
 				13D96C812D189FA0003238F6 /* ContentView.swift in Sources */,
 				13D96C7F2D189FA0003238F6 /* SlopeStatsApp.swift in Sources */,
 				139F36742D1B1BD500799618 /* SlopeStats.xcdatamodeld in Sources */,
-				139F367E2D1B27E200799618 /* WCSessionDelegate.swift in Sources */,
-				139F36802D1B280200799618 /* AppDelegate.swift in Sources */,
 				139F367A2D1B23CF00799618 /* ArrayToDataTransformer.swift in Sources */,
 				139F367C2D1B27C700799618 /* PersistenceController.swift in Sources */,
 			);
@@ -741,6 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SlopeStats Watch App/SlopeStats Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlopeStats Watch App/Preview Content\"";
@@ -772,6 +775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SlopeStats Watch App/SlopeStats Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlopeStats Watch App/Preview Content\"";
