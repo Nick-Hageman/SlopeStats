@@ -6,8 +6,8 @@
 - [About](#-about)
 - [Wireless Connectivity](#-wireless-connectivity)
 - [Database](#-database)
-- [Activity Tracking](#-activity-tracking)
-- [Resort & Weather information](#-resort-and-weather-tracking)
+- [Activity Tracking](#%EF%B8%8F-activity-tracking)
+- [Resort & Weather information](#%EF%B8%8F-weather--resort-info-)
 
 ## 🏂 About
 **SlopeStats** is a watchOS + iOS app which has multiple modes of tracking activity for skiing & snowboarding. It offers the following features:
