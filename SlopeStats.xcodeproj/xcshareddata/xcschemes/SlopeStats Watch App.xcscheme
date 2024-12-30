@@ -88,6 +88,13 @@
             ReferencedContainer = "container:SlopeStats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "WEATHER_API_KEY"
+            value = "37870ec8a8235c2919e72757ae42468a"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

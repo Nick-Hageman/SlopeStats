@@ -2,6 +2,7 @@ import SwiftUI
 import CoreData
 import WatchConnectivity
 import UIKit
+import CoreLocation
 
 class PhoneSessionDelegate: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = PhoneSessionDelegate()
@@ -62,7 +63,15 @@ class PhoneSessionDelegate: NSObject, ObservableObject, WCSessionDelegate {
                let _speed = message["speed"] as? [Double],
                let _topSpeed = message["topSpeed"] as? Double
             {
-                self.showAlert(duration: _duration, timestamp: _timestamp, altitude: _altitude, heartRate: _heartRate, speed: _speed, topSpeed: _topSpeed)
+//                self.showAlert(duration: _duration, timestamp: _timestamp, altitude: _altitude, heartRate: _heartRate, speed: _speed, topSpeed: _topSpeed)
+                let alert = UIAlertController(title: "Stopwatch Data Received✅", message: "Click OK to return to the menu", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let window = scene.windows.first,
+                   let rootVC = window.rootViewController {
+                    rootVC.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -98,7 +107,6 @@ struct ContentView: View {
         animation: .default
     ) private var skiingDataEntities: FetchedResults<SkiingDataEntity>
 
-//    @StateObject private var wcSessionDelegate = WCSessionDelegateImpl()
     @State private var selectedTab: Tab = .navigation
 
     private enum Tab {
@@ -108,7 +116,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // Title/Nav bar
                 HStack {
                     Image("slopeStatsBanner")
                         .resizable()
@@ -118,7 +125,6 @@ struct ContentView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
 
-                // Tab bar
                 HStack {
                     Spacer()
                     Button(action: { selectedTab = .navigation }) {
@@ -143,7 +149,7 @@ struct ContentView: View {
                     Spacer()
                     Button(action: { selectedTab = .resort }) {
                         VStack {
-                            Image(systemName: "mountain")
+                            Image(systemName: "mountain.2")
                                 .foregroundColor(selectedTab == .resort ? .blue : .gray)
                             Text("Resort")
                                 .font(.footnote)
@@ -155,7 +161,6 @@ struct ContentView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
 
-                // Content area
                 Group {
                     switch selectedTab {
                     case .navigation:
@@ -168,7 +173,6 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     case .weather:
                         WeatherView()
-
                     case .resort:
                         ResortView()
                     }
@@ -183,59 +187,67 @@ struct SkiingDataRow: View {
     var skiingData: SkiingDataEntity
 
     @State private var showDetails = false
+    
+    var formattedTimestamp: String {
+        guard let timestamp = skiingData.timestamp else { return "No date available" }
+
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium  // You can choose different styles or formats
+        formatter.timeStyle = .short  // For a time format like "03:08 AM"
+        
+        return formatter.string(from: timestamp)
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Date: \(skiingData.timestamp)")
-                .font(.headline)
-                .foregroundColor(.black)
-            Divider()
-            Button(action: {
-                showDetails.toggle()
-            }) {
-                Text("Show Details")
+            HStack {
+                Image(systemName: "figure.skiing.downhill")
+                    .foregroundColor(.cyan)
+                Text("Date: \(formattedTimestamp)")
+                    .font(.headline)
                     .foregroundColor(.black)
-                Image(systemName: showDetails ? "chevron.up" : "chevron.down")
-                    .rotationEffect(showDetails ? .degrees(180) : .degrees(0))
+                Spacer()
+                Button(action: {
+                    showDetails.toggle()
+                }) {
+                    Image(systemName: showDetails ? "chevron.up" : "chevron.down")
+                        .foregroundColor(.black)
+                        .rotationEffect(showDetails ? .degrees(180) : .degrees(0))
+                }
             }
+            Divider()
             if showDetails {
-                VStack(alignment: .leading) {
-                    if let altitudeData = skiingData.altitude as? Data {
-                        let altitudeArray = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(altitudeData) as? [Double]
-                        Text("Altitude: \(altitudeArray?.description ?? "Not Available")")
-                            .foregroundColor(.black)
-                        // Graph for altitude using SwiftUI
-                        // ... (replace with SwiftUI code to graph altitude data)
+                VStack(alignment: .leading, spacing: 16) {
+                    if let altitudeData = skiingData.altitude as? Data,
+                       let altitudeArray = try? JSONSerialization.jsonObject(with: altitudeData, options: []) as? [Double] {
+                        Chart(data: altitudeArray, title: "Altitude", color: Color.blue, icon: "mountain.2")
                     } else {
                         Text("Altitude: Not Available")
                             .foregroundColor(.black)
                     }
 
-                    Text("Duration: \(formatTime(Double(skiingData.duration ?? 0)))")
-                        .foregroundColor(.black)
-                    // Graph for duration using SwiftUI
-                    // ... (replace with SwiftUI code to graph duration data)
-
                     if let heartRateData = skiingData.heartRate as? Data {
-                        let heartRateArray = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(heartRateData) as? [Int]
-                        Text("Heart Rate: \(heartRateArray?.description ?? "Not Available")")
-                            .foregroundColor(.black)
-                        // Graph for heartRate using SwiftUI
-                        // ... (replace with SwiftUI code to graph heartRate data)
-                    } else {
-                        Text("Heart Rate: Not Available")
+                        let heartRateArray = try? JSONSerialization.jsonObject(with: heartRateData, options: []) as? [Int]
+                        if let heartRateArray = heartRateArray {
+                            Chart(data: heartRateArray.map { Double($0) }, title: "Heart Rate", color: .red, icon: "heart")
+                        } else {
+                            Text("Heart Rate: Not Available")
+                                .foregroundColor(.black)
+                        }
                     }
 
                     if let speedData = skiingData.speed as? Data {
-                        let speedArray = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(speedData) as? [Double]
-                        Text("Speed: \(speedArray?.description ?? "Not Available")")
-                            .foregroundColor(.black)
-                        // Graph for speed using SwiftUI
-                        // ... (replace with SwiftUI code to graph speed data)
-                    } else {
-                        Text("Speed: Not Available")
-                            .foregroundColor(.black)
+                        let speedArray = try? JSONSerialization.jsonObject(with: speedData, options: []) as? [Double]
+                        if let speedArray = speedArray {
+                            Chart(data: speedArray, title: "Speed", color: .green, icon: "hare")
+                        } else {
+                            Text("Speed: Not Available")
+                                .foregroundColor(.black)
+                        }
                     }
+
+                    Text("Run Duration: \(formatTime(Double(skiingData.duration ?? 0)))")
+                        .foregroundColor(.black)
 
                     Text("Top Speed: \(skiingData.topSpeed ?? 0.0)")
                         .foregroundColor(.black)
@@ -250,24 +262,6 @@ struct SkiingDataRow: View {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         return String(format: "%02d:%02d", minutes, seconds)
-    }
-}
-
-struct WeatherView: View {
-    var body: some View {
-        Text("Weather View")
-            .font(.largeTitle)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.blue.opacity(0.1))
-    }
-}
-
-struct ResortView: View {
-    var body: some View {
-        Text("Resort View")
-            .font(.largeTitle)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.green.opacity(0.1))
     }
 }
 
