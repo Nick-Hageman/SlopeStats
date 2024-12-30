@@ -58,6 +58,52 @@ Used Apple built-in frameworks to monitor altitude, heart rate, and speed/accele
     </td>
     <td>
       <p>I used the <img src="https://github.com/user-attachments/assets/6a460540-01f2-4b19-9f1b-bd31e01a31fc" width="120"> API to get real-time updates on skiing conditions. I only included the skiing-relevant measurements like temperture, wind conditions, etc from the json response.</p>
+      <details>
+      <summary>Example API Response</summary>
+
+  ```json
+      {
+      "request": {
+          "type": "City",
+          "query": "San Francisco, United States of America",
+          "language": "en",
+          "unit": "m"
+      },
+      "location": {
+          "name": "San Francisco",
+          "country": "United States of America",
+          "region": "California",
+          "lat": "37.775",
+          "lon": "-122.418",
+          "timezone_id": "America/Los_Angeles",
+          "localtime": "2019-09-03 05:35",
+          "localtime_epoch": 1567488900,
+          "utc_offset": "-7.0"
+      },
+      "current": {
+          "observation_time": "12:35 PM",
+          "temparature": 16,
+          "weather_code": 122,
+          "weather_icons": [
+              "https://assets.weatherstack.com/images/symbol.png"
+          ],
+          "weather_descriptions": [
+              "Overcast"
+          ],
+      "wind_speed": 17,
+      "wind_degree": 260,
+      "wind_dir": "W",
+      "pressure": 1016,
+      "precip": 0,
+      "humidity": 87,
+      "cloudcover": 100,
+      "feelslike": 16,
+      "uv_index": 0,
+      "visibility": 16
+      }
+    }
+  ```
+  </details>
     </td>
   </tr>
   <tr>
@@ -66,6 +112,180 @@ Used Apple built-in frameworks to monitor altitude, heart rate, and speed/accele
     </td>
     <td>
       <p>I used <img src="https://github.com/user-attachments/assets/58b9f10b-d276-417c-b77a-7c9b95d0a53a" height="20"> to get real-time updates on resort information. This API provided details on the lift status, weather, snow conditions, and even twitter feeds.</p>
-    </td>
+            <details>
+      <summary>Example API Response</summary>
+
+  ```json
+      {
+      "data": {
+        "slug": "whistler-blackcomb",
+        "name": "Whistler Blackcomb",
+        "country": "CA",
+        "region": "BC",
+        "href": "http://www.whistlerblackcomb.com/the-mountain/lifts-and-grooming/index.aspx",
+        "units": "metric",
+        "location": {
+          "latitude": 50.10693,
+          "longitude": -122.922073
+        },
+        "lifts": {
+          "status": {
+            "7th Heaven Express": "closed",
+            "Blackcomb Gondola Lower": "closed",
+            "Blackcomb Gondola Upper": "closed",
+            "Bubly Tube Park": "closed",
+            "Catskinner Express": "closed",
+            "Crystal Ridge Express": "closed",
+            "Excalibur Gondola Lower": "closed",
+            "Excalibur Gondola Upper": "closed",
+            "Excelerator Express": "closed",
+            "Glacier Express": "closed",
+            "Horstman T-Bar": "closed",
+            "Jersey Cream Express": "closed",
+            "Magic Chair": "closed",
+            "Peak 2 Peak Gondola": "closed",
+            "Showcase T-Bar": "closed",
+            "Big Red Express": "closed",
+            "Creekside Gondola": "closed",
+            "Emerald 6 Express": "closed",
+            "Fitzsimmons Express": "closed",
+            "Franz's Chair": "closed",
+            "Garbanzo Express": "closed",
+            "Harmony 6 Express": "closed",
+            "Olympic Chair": "closed",
+            "Peak Express": "closed",
+            "Symphony Express": "closed",
+            "T-Bars": "closed",
+            "Whistler Village Gondola Lower": "closed",
+            "Whistler Village Gondola Upper": "closed"
+          },
+          "stats": {
+            "open": 0,
+            "hold": 0,
+            "scheduled": 0,
+            "closed": 28,
+            "percentage": {
+              "open": 0,
+              "hold": 0,
+              "scheduled": 0,
+              "closed": 100
+            }
+          }
+        },
+        "conditions": {
+          "base": 245,
+          "season": 679,
+          "twelve_hours": 0,
+          "twentyfour_hours": 0,
+          "fortyeight_hours": 3,
+          "seven_days": 50
+        },
+        "twitter": {
+          "user": "WhistlerBlckcmb",
+          "tweets": [
+            {
+              "text": "Possible sunny breaks today and mild temperatures🌤️\n\nListen to the Snowphone daily for your weather and snow report. \n\nPowered by @TELUS \nhttps://t.co/fAoIiWWibr",
+              "id_str": "1481652294202523657",
+              "created_at": "Thu Jan 13 15:40:09 +0000 2022",
+              "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                  {
+                    "screen_name": "TELUS",
+                    "name": "TELUS",
+                    "id": 6975832,
+                    "id_str": "6975832",
+                    "indices": [
+                      130,
+                      136
+                    ]
+                  }
+                ],
+                "urls": [
+                  {
+                    "url": "https://t.co/fAoIiWWibr",
+                    "expanded_url": "https://soundcloud.com/whistler-blackcomb/snowphone-january-13th-730am-2022?si=0eba8e35cf0d46d5badc03cd2d95ecf9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+                    "display_url": "soundcloud.com/whistler-black…",
+                    "indices": [
+                      138,
+                      161
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Periods of snow today with mild temperatures.\n\nListen to the Snowphone daily for your weather and snow report. \n\nPowered by @TELUS\nhttps://t.co/AasfPRETYp",
+              "id_str": "1481292758627368960",
+              "created_at": "Wed Jan 12 15:51:29 +0000 2022",
+              "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                  {
+                    "screen_name": "TELUS",
+                    "name": "TELUS",
+                    "id": 6975832,
+                    "id_str": "6975832",
+                    "indices": [
+                      124,
+                      130
+                    ]
+                  }
+                ],
+                "urls": [
+                  {
+                    "url": "https://t.co/AasfPRETYp",
+                    "expanded_url": "https://soundcloud.com/whistler-blackcomb/january-12b?si=45e67c285f674b4aa9066d0b481b04e5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+                    "display_url": "soundcloud.com/whistler-black…",
+                    "indices": [
+                      131,
+                      154
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Enjoy the day at Whistler Blackcomb with 15cm of new snow!\n\nListen to the Snowphone daily for your weather and snow report. \n\nPowered by @TELUS\n\nhttps://t.co/XaOkpIC1zP",
+              "id_str": "1480928679626784771",
+              "created_at": "Tue Jan 11 15:44:46 +0000 2022",
+              "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                  {
+                    "screen_name": "TELUS",
+                    "name": "TELUS",
+                    "id": 6975832,
+                    "id_str": "6975832",
+                    "indices": [
+                      137,
+                      143
+                    ]
+                  }
+                ],
+                "urls": [
+                  {
+                    "url": "https://t.co/XaOkpIC1zP",
+                    "expanded_url": "https://soundcloud.com/whistler-blackcomb/january-11b?si=72e9539b4e1145f98f29ffc323d7b1bf&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+                    "display_url": "soundcloud.com/whistler-black…",
+                    "indices": [
+                      145,
+                      168
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ```
+  </details>
+
+  </td>
   </tr>
 </table>
